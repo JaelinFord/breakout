@@ -7,20 +7,38 @@ BALL_DR = 0.5
 
 PAD_X = 52
 PAD_Y = 120
+PAD_DX = 0
 PAD_W = 24
 PAD_H = 3
 
+-- Runs at the start only
 function _init()
 	cls()
 end
 
+-- Updates every frame
 function _update()
+	BUTTPRESS = false
+
+	-- Left
 	if btn(0) then
-		PAD_X -= 5 -- Left
+		PAD_DX = -5
+		BUTTPRESS = true
+		-- PAD_X -= 5
 	end
+	-- Right
 	if btn(1) then
-		PAD_X += 5 -- Right
+		PAD_DX = 5
+		BUTTPRESS = true
+		-- PAD_X += 5
 	end
+
+	-- Floatyness of the pad
+	if not BUTTPRESS then
+		PAD_DX = PAD_DX / 1.65
+	end
+
+	PAD_X += PAD_DX
 
 	BALL_X += BALL_DX
 	BALL_Y += BALL_DY
