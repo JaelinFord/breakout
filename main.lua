@@ -37,17 +37,15 @@ function _update()
 	if not BUTTPRESS then
 		PAD_DX = PAD_DX / 1.65
 	end
-
 	PAD_X += PAD_DX
 
+	-- Make ball bouce when it hits edge of screen
 	BALL_X += BALL_DX
 	BALL_Y += BALL_DY
-
 	if BALL_X > 127 or BALL_X < 0 then
 		BALL_DX = -BALL_DX
 		sfx(0)
 	end
-
 	if BALL_Y > 127 or BALL_Y < 0 then
 		BALL_DY = -BALL_DY
 		sfx(0)
@@ -55,7 +53,10 @@ function _update()
 end
 
 function _draw()
+	-- Draws background
 	rectfill(0, 0, 127, 127, 1)
+	-- Create ball
 	circfill(BALL_X, BALL_Y, BALL_R, 10)
+	-- Create pad
 	rectfill(PAD_X, PAD_Y, PAD_X + PAD_W, PAD_Y + PAD_H, 6)
 end
