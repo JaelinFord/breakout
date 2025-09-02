@@ -37,6 +37,8 @@ function UPDATE_START()
 		BINIT()
 		PINIT()
 		LIVES = 3
+		POINTS = 0
+		SERVEBALL()
 	end
 end
 
@@ -95,6 +97,7 @@ function DRAW_GAME()
 
 	rectfill(0, 0, 128, 6, 0)
 	print("lives:" .. LIVES, 1, 1, 7)
+	print("points:" .. POINTS, 40, 1, 7)
 end
 
 -- ============================================================================================= --

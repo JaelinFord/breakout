@@ -49,6 +49,7 @@ function BUPDATE()
 		end
 		-- Play sound effect 1 for a paddle hit
 		sfx(1)
+		POINTS += 10
 	end
 
 	-- Update the ball's actual position with the calculated next position
