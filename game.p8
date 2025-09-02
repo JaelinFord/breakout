@@ -2,6 +2,9 @@ pico-8 cartridge // http://www.pico-8.com
 version 43
 __lua__
 #include main.lua
+#include gamestates/game.lua
+#include gamestates/start.lua
+#include gamestates/gameover.lua
 #include paddle.lua
 #include ball.lua
 
