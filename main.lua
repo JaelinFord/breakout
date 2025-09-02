@@ -6,7 +6,7 @@ function _init()
 end
 
 -- Updates every frame
-function _update()
+function _update60()
 	BUPDATE()
 	PUPDATE()
 end

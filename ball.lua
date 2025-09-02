@@ -1,8 +1,8 @@
 function BINIT()
 	BALL_X = 1
 	BALL_Y = 40
-	BALL_DX = 3
-	BALL_DY = 3
+	BALL_DX = 1.3
+	BALL_DY = 1.3
 	BALL_R = 2
 	BALL_DR = 0.5
 end
