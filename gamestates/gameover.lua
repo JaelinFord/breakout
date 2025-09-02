@@ -1,12 +1,10 @@
-function update_gameover()
+function gameover_update()
 	if btn(5) then
 		startgame()
 	end
 end
 
--- Draws the game over screen graphics
-function draw_gameover()
-	-- Prints the "game over" message and highscore
+function gameover_draw()
 	rectfill(0, 53, 128, 79, 0)
 	print("game over!", 43, 56, 7)
 	print("highscore: " .. POINTS, 34, 64, 7)

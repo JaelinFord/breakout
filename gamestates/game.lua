@@ -1,17 +1,19 @@
--- Initializes and updates the ball and paddle
-function update_game()
-	bupdate()
-	pupdate()
+function game_init()
+	LIVES = 3
+	POINTS = 0
 end
 
--- Draws the main game graphics
-function draw_game()
-	-- Draws a solid-color background for the game
+function game_update()
+	bupdate()
+	pupdate()
+	brick_update()
+end
+
+function game_draw()
 	cls(1)
-	-- Draws the ball
 	bdraw()
-	-- Draws the paddle
 	pdraw()
+	brick_draw()
 
 	rectfill(0, 0, 128, 7, 0)
 	print("lives:" .. LIVES, 1, 1, 7)
