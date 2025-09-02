@@ -1,14 +1,14 @@
 -- Initialize ball
-function BINIT()
+function binit()
 	-- Set the radius of the ball
 	BALL_R = 2
 	-- Set the change in radius per update (not currently used in this code)
 	BALL_DR = 0.5
-	SERVEBALL()
+	serveball()
 end
 
 -- Update ball logic
-function BUPDATE()
+function bupdate()
 	-- Declare variables for the ball's next position
 	local nextx, nexty
 
@@ -18,18 +18,18 @@ function BUPDATE()
 
 	-- Make ball bounce when it hits the edge of the screen
 	-- Check for horizontal collision with the screen edges (left and right)
-	if nextx > 125 or nextx < 3 then
+	if nextx > (128 - BALL_R) or nextx < BALL_R then
 		-- Clamp the ball's x-position to stay within the screen bounds
-		nextx = mid(0, nextx, 127)
+		nextx = mid(BALL_R, nextx, 128 - BALL_R)
 		-- Reverse the horizontal velocity to make the ball bounce
 		BALL_DX = -BALL_DX
 		-- Play sound effect 0 for a wall bounce
 		sfx(0)
 	end
 	-- Check for vertical collision with the screen edges (top and bottom)
-	if nexty < 11 then
+	if nexty < (7 + BALL_R) then
 		-- Clamp the ball's y-position to stay within the screen bounds
-		nexty = mid(0, nexty, 127)
+		nexty = 7 + BALL_R
 		-- Reverse the vertical velocity to make the ball bounce
 		BALL_DY = -BALL_DY
 		-- Play sound effect 0 for a wall bounce
@@ -37,7 +37,7 @@ function BUPDATE()
 	end
 
 	-- Check if the ball collides with the paddle using a bounding box check
-	if BALL_BOX(nextx, nexty, PAD_X, PAD_Y, PAD_W, PAD_H) then
+	if ball_box(nextx, nexty, PAD_X, PAD_Y, PAD_W, PAD_H) then
 		-- If a collision is detected, handle the deflection
 		-- Find out the direction to deflect the ball (horizontal or vertical)
 		if deflx_ballbox(BALL_X, BALL_Y, BALL_DX, BALL_DY, PAD_X, PAD_Y, PAD_W, PAD_H) then
@@ -60,21 +60,21 @@ function BUPDATE()
 		sfx(2)
 		LIVES -= 1
 		if LIVES == 0 then
-			GAMEOVER()
+			gameover()
 		else
-			SERVEBALL()
+			serveball()
 		end
 	end
 end
 
 -- Draw ball
-function BDRAW()
+function bdraw()
 	-- Draw a filled circle for the ball at its current position
 	circfill(BALL_X, BALL_Y, BALL_R, 10)
 end
 
 -- ============================================================================================= --
-function SERVEBALL()
+function serveball()
 	-- Set the initial x-coordinate of the ball
 	BALL_X = 5
 	-- Set the initial y-coordinate of the ball
@@ -86,7 +86,7 @@ function SERVEBALL()
 end
 
 -- Bounding box collision check
-function BALL_BOX(bx, by, BOX_X, BOX_Y, BOX_W, BOX_H)
+function ball_box(bx, by, BOX_X, BOX_Y, BOX_W, BOX_H)
 	-- Checks for a collision of the ball with a rectangle
 	-- These are separation axis tests. If any of these conditions are true, there is no collision.
 	-- Check if the ball is below the box

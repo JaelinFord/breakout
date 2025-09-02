@@ -1,5 +1,5 @@
 -- Initialize player
-function PINIT()
+function pinit()
 	-- Set the initial X position of the paddle
 	PAD_X = 52
 	-- Set the initial Y position of the paddle
@@ -15,7 +15,7 @@ function PINIT()
 end
 
 -- Update player logic
-function PUPDATE()
+function pupdate()
 	-- A flag to check if any button is currently being pressed
 	local buttpress = false
 	-- Check for left button press
@@ -42,7 +42,7 @@ function PUPDATE()
 end
 
 -- Draw the paddle
-function PDRAW()
+function pdraw()
 	-- Draw a filled rectangle for the paddle using its properties
 	rectfill(PAD_X, PAD_Y, PAD_X + PAD_W, PAD_Y + PAD_H, PAD_C)
 end

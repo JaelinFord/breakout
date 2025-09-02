@@ -10,14 +10,11 @@ end
 function _update60()
 	-- Checks the current game mode and calls the appropriate update function
 	if MODE == "game" then
-		-- Updates game logic
-		UPDATE_GAME()
+		update_game()
 	elseif MODE == "start" then
-		-- Updates logic for the start screen
-		UPDATE_START()
+		update_start()
 	elseif MODE == "gameover" then
-		-- Updates logic for the game over screen
-		UPDATE_GAMEOVER()
+		update_gameover()
 	end
 end
 
@@ -25,13 +22,10 @@ end
 function _draw()
 	-- Checks the current game mode and calls the appropriate draw function
 	if MODE == "game" then
-		-- Draws all game elements
-		DRAW_GAME()
+		draw_game()
 	elseif MODE == "start" then
-		-- Draws the start screen
-		DRAW_START()
+		draw_start()
 	elseif MODE == "gameover" then
-		--Draws the game over screen
-		DRAW_GAMEOVER()
+		draw_gameover()
 	end
 end

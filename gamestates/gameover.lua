@@ -1,11 +1,11 @@
-function UPDATE_GAMEOVER()
+function update_gameover()
 	if btn(5) then
-		STARTGAME()
+		startgame()
 	end
 end
 
 -- Draws the game over screen graphics
-function DRAW_GAMEOVER()
+function draw_gameover()
 	-- Prints the "game over" message and highscore
 	rectfill(0, 53, 128, 79, 0)
 	print("game over!", 43, 56, 7)
@@ -13,6 +13,6 @@ function DRAW_GAMEOVER()
 	print("press ❎ to restart", 26, 72, 6)
 end
 
-function GAMEOVER()
+function gameover()
 	MODE = "gameover"
 end
