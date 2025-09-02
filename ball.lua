@@ -27,7 +27,7 @@ function BUPDATE()
 		sfx(0)
 	end
 	-- Check for vertical collision with the screen edges (top and bottom)
-	if nexty < 9 then
+	if nexty < 11 then
 		-- Clamp the ball's y-position to stay within the screen bounds
 		nexty = mid(0, nexty, 127)
 		-- Reverse the vertical velocity to make the ball bounce
