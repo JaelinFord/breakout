@@ -39,6 +39,7 @@ function pupdate()
 	end
 	-- Update the paddle's X position based on its velocity
 	PAD_X += PAD_DX
+	PAD_X = mid(0, PAD_X, 127 - PAD_W)
 end
 
 -- Draw the paddle
