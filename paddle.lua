@@ -11,12 +11,12 @@ function PUPDATE()
 	local buttpress = false
 	-- Left
 	if btn(0) then
-		PAD_DX = -3
+		PAD_DX = -3.5
 		buttpress = true
 	end
 	-- Right
 	if btn(1) then
-		PAD_DX = 3
+		PAD_DX = 3.5
 		buttpress = true
 	end
 	-- Floatyness of the pad
